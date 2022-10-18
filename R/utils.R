@@ -139,7 +139,7 @@ sparseParCApply <- function (cl = NULL, x, FUN, convert_to_dense, ...)
 #' 
 #' @return The result of with(pData(X) apply(exprs(X)), MARGIN, FUN, ...))
 #' @importFrom parallel makeCluster stopCluster
-#' @importFrom BiocGenerics clusterCall parRapply parCapply
+#' @importFrom paralell clusterCall parRapply parCapply
 #' @importFrom Biobase pData exprs multiassign
 #' @export
 mcesApply <- function(X, MARGIN, FUN, required_packages, cores=1, convert_to_dense=TRUE, ...) {
