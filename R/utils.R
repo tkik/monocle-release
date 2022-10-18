@@ -105,7 +105,7 @@ splitCols <- function (x, ncl) {
   lapply(splitIndices(ncol(x), ncl), function(i) x[, i, drop = FALSE])
 }
 
-#' @importFrom BiocGenerics clusterApply
+#' @importFrom parallel clusterApply
 sparseParRApply <- function (cl, x, FUN, convert_to_dense, ...) 
 {
   par_res <- do.call(c, clusterApply(cl = cl, x = splitRows(x, length(cl)), 
@@ -114,7 +114,7 @@ sparseParRApply <- function (cl, x, FUN, convert_to_dense, ...)
   par_res
 }
 
-#' @importFrom BiocGenerics clusterApply
+#' @importFrom parallel clusterApply
 sparseParCApply <- function (cl = NULL, x, FUN, convert_to_dense, ...) 
 {
   par_res <- do.call(c, clusterApply(cl = cl, x = splitCols(x, length(cl)), 
